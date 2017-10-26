@@ -30,12 +30,12 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use((req, res, next) => {
-//   res.render('maintenance.hbs',{
-//     pageTitle: "We'll be right back",
-//     bodyMessage: 'Page is currently under construction!'
-//   });
-// });
+app.use((req, res, next) => {
+  res.render('maintenance.hbs',{
+    pageTitle: "Coming Soon",
+    bodyMessage: 'FFN Content Coming Soon!'
+  });
+});
 
 app.use(express.static(__dirname+ '/public'));
 
