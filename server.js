@@ -30,15 +30,16 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  res.render('maintenance.hbs',{
-    pageTitle: "Coming Soon",
-    bodyMessage: 'FFN Content Coming Soon!'
-  });
-});
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs',{
+//     pageTitle: "Coming Soon",
+//     bodyMessage: 'FFN Content Coming Soon!'
+//   });
+// });
 
 app.use(express.static(__dirname+ '/public'));
 
+//home page
 app.get('/',(req, res) => {
   res.render('home.hbs',{
     pageTitle: 'Fantasy Football Network',
@@ -46,17 +47,37 @@ app.get('/',(req, res) => {
   });
 });
 
+//about page
 app.get('/about', (req, res) => {
   res.render('about.hbs', {
     pageTitle: 'About Page'
   });
 });
 
+//projects page
+app.get('/projects', (req, res) =>{
+  res.render('projects.hbs', {
+    pageTitle: 'Projects',
+    pageMessage: 'Back on the block'
+  });
+});
+
+//test page
+app.get('/test', (req, res) => {
+  res.render('test.hbs',{
+    pageTitle: 'Test Access',
+    pageMessage: 'Welcome to the developer test landing page'
+  });
+});
+
+//bad page
 app.get('/bad', (req, res) => {
   res.send({
     errorMessage: 'Unable to handle request'
   })
 })
+
+//start server
 console.log('Starting server...')
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`)
