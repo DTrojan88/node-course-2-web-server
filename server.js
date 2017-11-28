@@ -41,7 +41,10 @@ app.use(express.static(__dirname+ '/public'));
 
 //home page
 app.get('/',(req, res) => {
-  res.redirect('ffn.jpg')
+  // res.redirect('ffn.jpg')
+  res.render('home.hbs', {
+    pageTitle: 'Fantasy Football Network'
+  })
 });
 
 //about page
